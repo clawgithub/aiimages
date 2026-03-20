@@ -61,15 +61,22 @@
       letter-spacing: -0.3px;
     }
 
+    header .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     header .subtitle {
       font-size: 13px;
       color: var(--text-secondary);
-      margin-left: auto;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
+    /* Auth dot */
     .auth-dot {
       width: 8px;
       height: 8px;
@@ -84,6 +91,136 @@
       box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
     }
 
+    /* Account button in header */
+    .account-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      position: relative;
+    }
+
+    .account-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .account-btn .account-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .account-btn .account-name {
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .account-btn svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* Account dropdown */
+    .account-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      min-width: 220px;
+      z-index: 500;
+      overflow: hidden;
+      animation: dropdown-in 0.15s ease;
+    }
+
+    @keyframes dropdown-in {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .account-dropdown .dropdown-header {
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .account-dropdown .dropdown-header .d-label {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .account-dropdown .dropdown-header .d-username {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .account-dropdown .dropdown-header .d-email {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      word-break: break-all;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.1s;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .dropdown-item:hover { background: var(--bg); }
+
+    .dropdown-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .dropdown-item.danger { color: #dc2626; }
+    .dropdown-item.danger svg { color: #dc2626; }
+    .dropdown-item.danger:hover { background: #fef2f2; }
+
+    /* Chat area */
     #chat-area {
       flex: 1;
       overflow-y: auto;
@@ -161,9 +298,7 @@
       margin: 0 auto;
     }
 
-    .message-row.user {
-      align-items: flex-end;
-    }
+    .message-row.user { align-items: flex-end; }
 
     .prompt-bubble {
       background: var(--accent);
@@ -222,10 +357,7 @@
       justify-content: center;
     }
 
-    .image-card .image-wrapper img {
-      width: 100%;
-      display: block;
-    }
+    .image-card .image-wrapper img { width: 100%; display: block; }
 
     .image-card .image-wrapper .loading-spinner {
       display: flex;
@@ -453,6 +585,7 @@
       color: #9ca3af;
     }
 
+    /* Login screen */
     #login-screen {
       position: fixed;
       inset: 0;
@@ -552,6 +685,7 @@
 
     .login-card .btn-login:hover { background: var(--accent-hover); }
 
+    /* Splash */
     #splash {
       position: fixed;
       inset: 0;
@@ -582,9 +716,7 @@
       transform: translateY(20px);
     }
 
-    #splash.active .splash-title {
-      animation: splash-in 0.7s ease forwards;
-    }
+    #splash.active .splash-title { animation: splash-in 0.7s ease forwards; }
 
     #splash .splash-author {
       font-size: 14px;
@@ -594,9 +726,7 @@
       transform: translateY(12px);
     }
 
-    #splash.active .splash-author {
-      animation: splash-in 0.7s ease 0.35s forwards;
-    }
+    #splash.active .splash-author { animation: splash-in 0.7s ease 0.35s forwards; }
 
     #splash .splash-bar {
       width: 48px;
@@ -608,18 +738,12 @@
       transform: scaleX(0);
     }
 
-    #splash.active .splash-bar {
-      animation: bar-in 0.5s ease 0.7s forwards;
-    }
+    #splash.active .splash-bar { animation: bar-in 0.5s ease 0.7s forwards; }
 
-    @keyframes splash-in {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes splash-in { to { opacity: 1; transform: translateY(0); } }
+    @keyframes bar-in    { to { opacity: 1; transform: scaleX(1); } }
 
-    @keyframes bar-in {
-      to { opacity: 1; transform: scaleX(1); }
-    }
-
+    /* Puter popup */
     #puter-popup {
       position: fixed;
       inset: 0;
@@ -654,7 +778,7 @@
 
     @keyframes popup-in {
       from { opacity: 0; transform: scale(0.95) translateY(10px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .puter-card .puter-logo {
@@ -703,7 +827,7 @@
 
     @media (max-width: 640px) {
       header h1 { font-size: 16px; }
-      header .subtitle { display: none; }
+      .account-btn .account-name { display: none; }
       #chat-area { padding: 16px; }
       .results-grid { grid-template-columns: 1fr; }
       .welcome .hints { flex-direction: column; }
@@ -758,14 +882,34 @@
       </svg>
     </div>
     <h1>AI Image Generator &amp; Editor</h1>
-    <span class="subtitle"><span class="auth-dot" id="auth-dot" title="Puter: Not connected"></span>Powered by Gemini 2.5 Flash</span>
+
+    <div class="header-right">
+      <span class="subtitle">
+        <span class="auth-dot" id="auth-dot"></span>
+        Powered by Gemini 2.5 Flash
+      </span>
+
+      <!-- Account button — shown when signed in to Puter -->
+      <button class="account-btn" id="account-btn" style="display:none;">
+        <div class="account-avatar" id="account-avatar">?</div>
+        <span class="account-name" id="account-name">Puter</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+        <!-- Dropdown rendered here by JS -->
+      </button>
+    </div>
   </header>
 
   <div id="chat-area">
     <div class="welcome" id="welcome">
       <div class="icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="m3 16 2.5-2.5"/><path d="m21 8-2.5 2.5"/><path d="m3 8 2.5 2.5"/><path d="m21 16-2.5-2.5"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/>
+          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+          <path d="m3 16 2.5-2.5"/><path d="m21 8-2.5 2.5"/>
+          <path d="m3 8 2.5 2.5"/><path d="m21 16-2.5-2.5"/>
+          <path d="M12 2v4"/><path d="M12 18v4"/>
+          <path d="M2 12h4"/><path d="M18 12h4"/>
         </svg>
       </div>
       <h2>Create and edit images with AI</h2>
@@ -827,27 +971,28 @@
   </div>
 
   <script>
-    const chatArea = document.getElementById('chat-area');
-    const promptInput = document.getElementById('prompt-input');
-    const fileInput = document.getElementById('file-input');
-    const previewBar = document.getElementById('image-preview-bar');
-    const previewThumb = document.getElementById('preview-thumb');
+    const chatArea        = document.getElementById('chat-area');
+    const promptInput     = document.getElementById('prompt-input');
+    const fileInput       = document.getElementById('file-input');
+    const previewBar      = document.getElementById('image-preview-bar');
+    const previewThumb    = document.getElementById('preview-thumb');
     const previewFilename = document.getElementById('preview-filename');
-    const authDot = document.getElementById('auth-dot');
+    const authDot         = document.getElementById('auth-dot');
+    const accountBtn      = document.getElementById('account-btn');
+    const accountAvatar   = document.getElementById('account-avatar');
+    const accountName     = document.getElementById('account-name');
 
     let attachedImage = null;
     let selectedRatio = '1:1';
+    let accountDropdownOpen = false;
 
-    // Target output dimensions for each ratio.
-    // The API always returns a square, so we crop+scale on a canvas
-    // after the image comes back to guarantee the correct final size.
     const RATIO_SIZES = {
-      '16:9': { w: 1920, h: 1080 },
+      '16:9': { w: 2560, h: 1440 },
       '9:16': { w: 1080, h: 1920 },
       '1:1':  { w: 1024, h: 1024 },
     };
 
-    // Ratio buttons
+    // ===== Ratio buttons =====
     document.querySelectorAll('.ratio-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.ratio-btn').forEach(b => b.classList.remove('active'));
@@ -856,25 +1001,176 @@
       });
     });
 
-    // ===== Puter auth status =====
-    function updateAuthDot() {
+    // ===== Account UI =====
+    // Fetches the signed-in Puter user and updates the header button.
+    async function refreshAccountUI() {
       try {
         const signedIn = puter.auth.isSignedIn();
         if (signedIn) {
           authDot.classList.add('online');
           authDot.title = 'Puter: Connected';
+
+          // Get user info from Puter
+          let username = 'Puter User';
+          let email    = '';
+          try {
+            const user = await puter.auth.getUser();
+            username = user.username || user.name || username;
+            email    = user.email    || '';
+          } catch (e) { /* getUser might not be available in all SDK versions */ }
+
+          // Update the avatar initial and display name
+          accountAvatar.textContent = username.charAt(0).toUpperCase();
+          accountName.textContent   = username;
+          accountBtn.dataset.username = username;
+          accountBtn.dataset.email    = email;
+          accountBtn.style.display    = 'flex';
         } else {
           authDot.classList.remove('online');
-          authDot.title = 'Puter: Not connected';
+          authDot.title            = 'Puter: Not connected';
+          accountBtn.style.display = 'none';
+          closeAccountDropdown();
         }
       } catch (e) {
         authDot.classList.remove('online');
-        authDot.title = 'Puter: Not connected';
+        accountBtn.style.display = 'none';
       }
     }
 
-    setInterval(updateAuthDot, 3000);
-    setTimeout(updateAuthDot, 1000);
+    setInterval(refreshAccountUI, 5000);
+    setTimeout(refreshAccountUI, 1000);
+
+    // ===== Account dropdown =====
+    function openAccountDropdown() {
+      // Remove any existing dropdown first
+      closeAccountDropdown();
+
+      const username = accountBtn.dataset.username || 'Puter User';
+      const email    = accountBtn.dataset.email    || '';
+
+      const dropdown = document.createElement('div');
+      dropdown.className = 'account-dropdown';
+      dropdown.id = 'account-dropdown';
+      dropdown.innerHTML = `
+        <div class="dropdown-header">
+          <div class="d-label">Signed in as</div>
+          <div class="d-username">${escapeHTML(username)}</div>
+          ${email ? `<div class="d-email">${escapeHTML(email)}</div>` : ''}
+        </div>
+        <button class="dropdown-item" id="dd-switch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+          </svg>
+          Switch account
+        </button>
+        <button class="dropdown-item danger" id="dd-signout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Sign out
+        </button>
+      `;
+
+      accountBtn.appendChild(dropdown);
+      accountDropdownOpen = true;
+
+      dropdown.getElementById = (id) => dropdown.querySelector('#' + id);
+
+      dropdown.querySelector('#dd-switch').addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAccountDropdown();
+        switchPuterAccount();
+      });
+
+      dropdown.querySelector('#dd-signout').addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAccountDropdown();
+        signOutPuter();
+      });
+    }
+
+    function closeAccountDropdown() {
+      const existing = document.getElementById('account-dropdown');
+      if (existing) existing.remove();
+      accountDropdownOpen = false;
+    }
+
+    accountBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (accountDropdownOpen) {
+        closeAccountDropdown();
+      } else {
+        openAccountDropdown();
+      }
+    });
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener('click', () => closeAccountDropdown());
+
+    // ===== Sign out of Puter =====
+    async function signOutPuter() {
+      try {
+        await puter.auth.signOut();
+      } catch (e) {
+        console.warn('signOut error:', e);
+      }
+      await refreshAccountUI();
+      // Show the Puter popup again so they can sign back in
+      const puterPopup = document.getElementById('puter-popup');
+      if (puterPopup) {
+        puterPopup.classList.add('active');
+      } else {
+        // Popup was already removed — recreate it
+        showPuterPopupFresh();
+      }
+    }
+
+    // ===== Switch account (sign out then sign in as someone else) =====
+    async function switchPuterAccount() {
+      try {
+        await puter.auth.signOut();
+      } catch (e) {
+        console.warn('signOut error during switch:', e);
+      }
+      // Trigger Puter's own sign-in flow directly
+      try {
+        await puter.auth.signIn();
+        await refreshAccountUI();
+      } catch (e) {
+        console.warn('signIn error during switch:', e);
+        await refreshAccountUI();
+      }
+    }
+
+    // ===== Show a fresh Puter popup (if it was already removed from DOM) =====
+    function showPuterPopupFresh() {
+      // Check if it already exists
+      if (document.getElementById('puter-popup')) return;
+
+      const overlay = document.createElement('div');
+      overlay.id = 'puter-popup';
+      overlay.style.cssText = 'position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;';
+      overlay.innerHTML = `
+        <div class="puter-card">
+          <div class="puter-logo">Puter</div>
+          <p>Sign in to your Puter account to continue generating images.</p>
+          <button class="btn-puter" id="btn-puter-open2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Puter in Browser
+          </button>
+          <button class="btn-skip" id="btn-puter-skip2">I've signed in — Continue</button>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.querySelector('#btn-puter-open2').addEventListener('click', openPuterSignUp);
+      overlay.querySelector('#btn-puter-skip2').addEventListener('click', async () => {
+        overlay.remove();
+        await refreshAccountUI();
+      });
+    }
 
     // ===== File attachment =====
     fileInput.addEventListener('change', (e) => {
@@ -882,8 +1178,8 @@
       if (!file) return;
       const reader = new FileReader();
       reader.onload = (ev) => {
-        const dataUrl = ev.target.result;
-        const base64 = dataUrl.split(',')[1];
+        const dataUrl  = ev.target.result;
+        const base64   = dataUrl.split(',')[1];
         const mimeType = file.type || 'image/png';
         attachedImage = { base64, mimeType, name: file.name, dataUrl };
         previewThumb.src = dataUrl;
@@ -931,7 +1227,7 @@
       if (!prompt) return;
 
       const currentAttached = attachedImage;
-      const currentRatio = selectedRatio;
+      const currentRatio    = selectedRatio;
 
       promptInput.value = '';
       removeAttachedImage();
@@ -976,26 +1272,19 @@
       generateImage(cardId, prompt, currentAttached, currentRatio);
     }
 
-    // ===== Canvas resize/crop =====
-    // Takes any source image and returns a data URL cropped and scaled
-    // to exactly the target width x height using a cover-fill strategy.
+    // ===== Canvas resize/crop to exact dimensions =====
     function resizeToExact(sourceImg, targetW, targetH) {
-      const canvas = document.createElement('canvas');
+      const canvas  = document.createElement('canvas');
       canvas.width  = targetW;
       canvas.height = targetH;
-      const ctx = canvas.getContext('2d');
-
+      const ctx  = canvas.getContext('2d');
       const srcW = sourceImg.naturalWidth  || sourceImg.width;
       const srcH = sourceImg.naturalHeight || sourceImg.height;
-
-      // Scale so the image fills the target completely (cover), then
-      // centre-crop any overflow.
-      const scale = Math.max(targetW / srcW, targetH / srcH);
-      const drawW = srcW * scale;
-      const drawH = srcH * scale;
+      const scale   = Math.max(targetW / srcW, targetH / srcH);
+      const drawW   = srcW * scale;
+      const drawH   = srcH * scale;
       const offsetX = (targetW - drawW) / 2;
       const offsetY = (targetH - drawH) / 2;
-
       ctx.drawImage(sourceImg, offsetX, offsetY, drawW, drawH);
       return canvas.toDataURL('image/png');
     }
@@ -1005,10 +1294,9 @@
       const card = document.getElementById(cardId);
       if (!card) return;
 
-      const startTime = Date.now();
+      const startTime  = Date.now();
       const targetSize = RATIO_SIZES[ratio] || RATIO_SIZES['1:1'];
 
-      // Include the ratio in the prompt as a hint to the model
       const ratioDescriptions = {
         '16:9': 'wide landscape 16:9 aspect ratio, wider than tall',
         '9:16': 'tall portrait 9:16 aspect ratio, taller than wide',
@@ -1020,7 +1308,7 @@
         if (!puter.auth.isSignedIn()) {
           updateStatus(card, 'Signing in to Puter...');
           await puter.auth.signIn();
-          updateAuthDot();
+          await refreshAccountUI();
         }
 
         updateStatus(card, 'Generating image...');
@@ -1038,11 +1326,8 @@
           });
         }
 
-        if (!result) {
-          throw new Error('No image returned — check your Puter account or try again.');
-        }
+        if (!result) throw new Error('No image returned — check your Puter account or try again.');
 
-        // Normalise the result into an HTMLImageElement
         let rawImg;
         if (result && result.tagName === 'IMG') {
           rawImg = result;
@@ -1056,7 +1341,6 @@
           throw new Error('Unexpected response from Puter: ' + JSON.stringify(result));
         }
 
-        // Wait for the image to fully load before we draw it on canvas
         updateStatus(card, 'Resizing to ' + targetSize.w + '×' + targetSize.h + '...');
         await new Promise((resolve, reject) => {
           if (rawImg.complete && rawImg.naturalWidth > 0) {
@@ -1067,17 +1351,14 @@
           }
         });
 
-        // Crop + scale to the exact target resolution on a canvas
         const finalDataUrl = resizeToExact(rawImg, targetSize.w, targetSize.h);
-
         const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
-        // Show the final image
         const wrapper = card.querySelector('.image-wrapper');
         wrapper.innerHTML = '';
         const displayImg = new Image();
-        displayImg.src = finalDataUrl;
-        displayImg.style.width   = '100%';
+        displayImg.src          = finalDataUrl;
+        displayImg.style.width  = '100%';
         displayImg.style.display = 'block';
         displayImg.alt = 'Generated image';
         wrapper.appendChild(displayImg);
@@ -1087,23 +1368,24 @@
           <span class="status">Complete (${elapsed}s) &middot; ${targetSize.w}×${targetSize.h}</span>
           <button class="btn-download">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
             Download
           </button>
         `;
 
-        // Download button saves the already-resized data URL directly
         actions.querySelector('.btn-download').addEventListener('click', () => {
           const a = document.createElement('a');
-          a.href = finalDataUrl;
+          a.href     = finalDataUrl;
           a.download = 'ai-image-' + targetSize.w + 'x' + targetSize.h + '-' + Date.now() + '.png';
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
         });
 
-        updateAuthDot();
+        await refreshAccountUI();
         scrollToBottom();
 
       } catch (err) {
@@ -1111,16 +1393,20 @@
         const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
         const message = err.message || 'Generation failed — check DevTools console for details.';
 
-        const wrapper = card.querySelector('.image-wrapper');
-        wrapper.innerHTML = `<div class="loading-spinner" style="color:#dc2626;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <span>${escapeHTML(message)}</span>
-        </div>`;
+        card.querySelector('.image-wrapper').innerHTML = `
+          <div class="loading-spinner" style="color:#dc2626;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <span>${escapeHTML(message)}</span>
+          </div>`;
 
-        const actions = card.querySelector('.card-actions');
-        actions.innerHTML = `<span class="status error">Failed (${elapsed}s)</span>`;
+        card.querySelector('.card-actions').innerHTML =
+          `<span class="status error">Failed (${elapsed}s)</span>`;
 
-        updateAuthDot();
+        await refreshAccountUI();
       }
     }
 
@@ -1130,9 +1416,7 @@
     }
 
     function scrollToBottom() {
-      requestAnimationFrame(() => {
-        chatArea.scrollTop = chatArea.scrollHeight;
-      });
+      requestAnimationFrame(() => { chatArea.scrollTop = chatArea.scrollHeight; });
     }
 
     function escapeHTML(str) {
@@ -1186,7 +1470,7 @@
     function showPuterPopup() {
       try {
         if (puter.auth.isSignedIn()) {
-          updateAuthDot();
+          refreshAccountUI();
           if (puterPopup) puterPopup.remove();
           return;
         }
@@ -1204,9 +1488,9 @@
 
     function closePuterPopup() {
       puterPopup.style.opacity = '0';
-      setTimeout(() => {
+      setTimeout(async () => {
         puterPopup.remove();
-        updateAuthDot();
+        await refreshAccountUI();
       }, 300);
     }
   </script>
